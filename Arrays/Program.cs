@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Arrays
@@ -7,39 +7,40 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[] array = new int[30];
+            int[] numbers = new int[30];
+            int lastIndex = numbers.Length - 1;
 
             Random random = new Random();
-            int maxRandomValue = 100;
+            int maxRandomValue = 99;
             int minRandomValue = 0;
 
             Console.OutputEncoding = Encoding.Unicode;
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                array[i] = random.Next(minRandomValue, maxRandomValue + 1);
-                Console.Write(array[i] + " ");
+                numbers[i] = random.Next(minRandomValue, maxRandomValue + 1);
+                Console.Write(numbers[i] + " ");
             }
 
             Console.WriteLine();
             Console.WriteLine($"Локальные максимумы: ");
 
-            if (array[0] > array[1])
+            if (numbers[0] > numbers[1])
             {
-                Console.Write(array[0] + " ");
+                Console.Write(numbers[0] + " ");
             }
 
-            for (int i = 1; i < array.Length - 1; i++) 
+            for (int i = 1; i < numbers.Length - 1; i++) 
             {                
-                if (array[i] > array[i - 1] && array[i] > array[i + 1])
+                if (numbers[i] > numbers[i - 1] && numbers[i] > numbers[i + 1])
                 {
-                    Console.Write(array[i] + " ");
+                    Console.Write(numbers[i] + " ");
                 }
             }
 
-            if(array[array.Length - 1] > array[array.Length - 2])
+            if(numbers[lastIndex] > numbers[lastIndex - 1])
             {
-                Console.Write(array[array.Length - 1]);
+                Console.Write(numbers[lastIndex]);
             }
         }
     }
