@@ -13,8 +13,8 @@ namespace Arrays
             int[,] array = new int[5, 6];
             int sum = 0;
             int product = 1;
-            int numberSumLine = 2;
-            int numberProductColumn = 1;
+            int lineIndex = 2;
+            int columnIndex = 1;
 
             Random random = new Random();
 
@@ -30,14 +30,14 @@ namespace Arrays
             }
 
             for (int i = 0; i < array.GetLength(1); i++)
-                sum += array[numberSumLine - 1, i];
+                sum += array[lineIndex - 1, i];
 
             for (int i = 0; i < array.GetLength(0); i++)
-                product *= array[i, numberProductColumn - 1];
+                product *= array[i, columnIndex - 1];
 
             Console.OutputEncoding = Encoding.Unicode;
-            Console.WriteLine($"Сумма {numberSumLine} строки = {sum} ");
-            Console.WriteLine($"Произведение {numberProductColumn} столбца = {product} ");
+            Console.WriteLine($"Сумма {lineIndex} строки = {sum} ");
+            Console.WriteLine($"Произведение {columnIndex} столбца = {product} ");
         }
     }
 }
