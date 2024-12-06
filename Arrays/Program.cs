@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Arrays
@@ -11,30 +11,29 @@ namespace Arrays
             const string sumCommand = "sum";
 
             int[] numbers = new int[0];
-            int[] tempNumbers; 
-            int sum;
+            int[] tempNumbers;
 
             string playerInput;
-            bool exitLoop = true;
+            bool isRunning = true;
 
             Console.OutputEncoding = Encoding.Unicode;
 
             Console.WriteLine("Команды программы:");
             Console.WriteLine($"Выйти из программы - {exitCommand}\nВывести сумму всех чисел - {sumCommand}\nВведите любое число для добавления.");
 
-            while (exitLoop)
+            while (isRunning)
             {
                 playerInput = Console.ReadLine();
 
                 switch (playerInput)
                 {
                     case exitCommand:
-                        exitLoop = false;
+                        isRunning = false;
                         Console.WriteLine("Вы вышли из программы.");
                         break;
 
                     case sumCommand:
-                        sum = 0;
+                        int sum = 0;
 
                         for (int i = 0; i < numbers.Length; i++)
                             sum += numbers[i];
