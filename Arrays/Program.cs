@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Arrays
 {
@@ -10,47 +7,39 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[,] array = new int[10, 10];
-            int maxValue = int.MinValue;
+            int[] array = new int[30];
 
             Random random = new Random();
+            int maxRandomValue = 99;
+            int minRandomValue = 0;
 
             Console.OutputEncoding = Encoding.Unicode;
-            Console.WriteLine("Изначальная матрица:");
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
-                {
-                    array[i, j] = random.Next(10, 100);
-                    Console.Write(array[i, j] + " ");
-                }
-
-                Console.WriteLine();
+                array[i] = random.Next(minRandomValue, maxRandomValue + 1);
+                Console.Write(array[i] + " ");
             }
 
-            foreach(int number in array)
+            Console.WriteLine();
+            Console.WriteLine($"Локальные максимумы: ");
+
+            if (array[0] > array[1])
             {
-                if (maxValue < number)
-                    maxValue = number;
+                Console.Write(array[0] + " ");
             }
 
-            Console.WriteLine($"Максимальное число: {maxValue}.");
-            Console.WriteLine("Итоговая матрица:");
-
-            for (int i = 0; i < array.GetLength(0); i++)
-            {
-                for (int j = 0; j < array.GetLength(1); j++)
+            for (int i = 1; i < array.Length - 1; i++) 
+            {                
+                if (array[i] > array[i - 1] && array[i] > array[i + 1])
                 {
-                    if(array[i, j] == maxValue)
-                    {
-                        array[i, j] = 0;
-                    }
-
-                    Console.Write(array[i, j] + " ");
+                    Console.Write(array[i] + " ");
                 }
+            }
 
-                Console.WriteLine();
+            if(array[array.Length - 1] > array[array.Length - 2])
+            {
+                Console.Write(array[array.Length - 1]);
             }
         }
     }
