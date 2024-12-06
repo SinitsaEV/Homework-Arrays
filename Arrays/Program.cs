@@ -10,34 +10,48 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[,] array = new int[5, 6];
-            int sum = 0;
-            int product = 1;
-            int lineIndex = 2;
-            int columnIndex = 1;
+            int[,] array = new int[10, 10];
+            int maxValue = int.MinValue;
 
             Random random = new Random();
+
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.WriteLine("Изначальная матрица:");
 
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    array[i, j] = random.Next(0, 10);
+                    array[i, j] = random.Next(10, 100);
                     Console.Write(array[i, j] + " ");
                 }
 
                 Console.WriteLine();
             }
 
-            for (int i = 0; i < array.GetLength(1); i++)
-                sum += array[lineIndex - 1, i];
+            foreach(int number in array)
+            {
+                if (maxValue < number)
+                    maxValue = number;
+            }
+
+            Console.WriteLine($"Максимальное число: {maxValue}.");
+            Console.WriteLine("Итоговая матрица:");
 
             for (int i = 0; i < array.GetLength(0); i++)
-                product *= array[i, columnIndex - 1];
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if(array[i, j] == maxValue)
+                    {
+                        array[i, j] = 0;
+                    }
 
-            Console.OutputEncoding = Encoding.Unicode;
-            Console.WriteLine($"Сумма {lineIndex} строки = {sum} ");
-            Console.WriteLine($"Произведение {columnIndex} столбца = {product} ");
+                    Console.Write(array[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
