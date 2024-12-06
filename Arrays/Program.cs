@@ -7,39 +7,52 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[] array = new int[30];
+            const string exitCommand = "exit";
+            const string sumCommand = "sum";
 
-            Random random = new Random();
-            int maxRandomValue = 99;
-            int minRandomValue = 0;
+            int[] numbers = new int[0];
+            int[] tempNumbers; 
+            int sum;
+
+            string playerInput;
+            bool exitLoop = true;
 
             Console.OutputEncoding = Encoding.Unicode;
 
-            for (int i = 0; i < array.Length; i++)
+            Console.WriteLine("Команды программы:");
+            Console.WriteLine($"Выйти из программы - {exitCommand}\nВывести сумму всех чисел - {sumCommand}\nВведите любое число для добавления.");
+
+            while (exitLoop)
             {
-                array[i] = random.Next(minRandomValue, maxRandomValue + 1);
-                Console.Write(array[i] + " ");
-            }
+                playerInput = Console.ReadLine();
 
-            Console.WriteLine();
-            Console.WriteLine($"Локальные максимумы: ");
-
-            if (array[0] > array[1])
-            {
-                Console.Write(array[0] + " ");
-            }
-
-            for (int i = 1; i < array.Length - 1; i++) 
-            {                
-                if (array[i] > array[i - 1] && array[i] > array[i + 1])
+                switch (playerInput)
                 {
-                    Console.Write(array[i] + " ");
-                }
-            }
+                    case exitCommand:
+                        exitLoop = false;
+                        Console.WriteLine("Вы вышли из программы.");
+                        break;
 
-            if(array[array.Length - 1] > array[array.Length - 2])
-            {
-                Console.Write(array[array.Length - 1]);
+                    case sumCommand:
+                        sum = 0;
+
+                        for (int i = 0; i < numbers.Length; i++)
+                            sum += numbers[i];
+                        
+                        Console.WriteLine("Сумма всех чисел: " + sum);
+                        break;
+
+                    default:
+                        tempNumbers = new int[numbers.Length + 1];
+
+                        for (int i = 0; i < numbers.Length; i++)
+                            tempNumbers[i] = numbers[i];
+
+                        tempNumbers[tempNumbers.Length - 1] = Convert.ToInt32(playerInput);
+                        numbers = tempNumbers;
+                        Console.WriteLine($"Добавлено число: {playerInput}");
+                        break;
+                }
             }
         }
     }
