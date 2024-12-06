@@ -10,10 +10,7 @@ namespace Arrays
             const string exitCommand = "exit";
             const string sumCommand = "sum";
 
-            int[] numbers = new int[0];
-            int[] tempNumbers;
-
-            string playerInput;
+            int[] numbers = new int[0];            
             bool isRunning = true;
 
             Console.OutputEncoding = Encoding.Unicode;
@@ -23,7 +20,7 @@ namespace Arrays
 
             while (isRunning)
             {
-                playerInput = Console.ReadLine();
+                string playerInput = Console.ReadLine();
 
                 switch (playerInput)
                 {
@@ -42,7 +39,7 @@ namespace Arrays
                         break;
 
                     default:
-                        tempNumbers = new int[numbers.Length + 1];
+                        int[] tempNumbers = new int[numbers.Length + 1];
 
                         for (int i = 0; i < numbers.Length; i++)
                             tempNumbers[i] = numbers[i];
