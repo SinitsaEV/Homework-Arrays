@@ -7,8 +7,8 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            const string exitCommand = "exit";
-            const string sumCommand = "sum";
+            const string ExitCommand = "exit";
+            const string SumCommand = "sum";
 
             int[] numbers = new int[0];            
             bool isRunning = true;
