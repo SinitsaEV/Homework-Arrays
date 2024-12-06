@@ -10,7 +10,7 @@ namespace Arrays
             int[] array = new int[30];
 
             Random random = new Random();
-            int maxRandomValue = 99;
+            int maxRandomValue = 100;
             int minRandomValue = 0;
 
             Console.OutputEncoding = Encoding.Unicode;
