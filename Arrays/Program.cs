@@ -12,6 +12,7 @@ namespace Arrays
         {
             int[,] array = new int[10, 10];
             int maxValue = int.MinValue;
+            int replaceValue = 0;
 
             Random random = new Random();
 
@@ -44,7 +45,7 @@ namespace Arrays
                 {
                     if(array[i, j] == maxValue)
                     {
-                        array[i, j] = 0;
+                        array[i, j] = replaceValue;
                     }
 
                     Console.Write(array[i, j] + " ");
