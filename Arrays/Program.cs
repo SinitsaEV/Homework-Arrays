@@ -20,7 +20,7 @@ namespace Arrays
 
             Console.WriteLine();
 
-            for (int i = 0; i < offset; i++)
+            for (int i = 0; i < numbers.Length % offset; i++)
             {
                 int firstNumber = numbers[0];
 
@@ -32,9 +32,9 @@ namespace Arrays
                 numbers[numbers.Length - 1] = firstNumber;
             }
 
-            foreach(int i in numbers)
+            foreach(int number in numbers)
             {
-                Console.Write(i);
+                Console.Write(number);
             }
         }
     }
