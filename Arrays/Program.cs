@@ -20,7 +20,7 @@ namespace Arrays
 
             Console.WriteLine();
 
-            for (int i = 0; i < numbers.Length % offset; i++)
+            for (int i = 0; i < offset % numbers.Length; i++)
             {
                 int firstNumber = numbers[0];
 
