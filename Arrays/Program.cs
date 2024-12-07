@@ -35,16 +35,15 @@ namespace Arrays
                 }
                 else
                 {
-                    if(currentRepeatLength > maxRepeatLength)
-                    {
-                        maxRepeatLength = currentRepeatLength;
-                        maxRepeatNumber = currentRepeatNumber;
-                    }
-
                     currentRepeatNumber = numbers[i];
                     currentRepeatLength = minRepeatLength;
                 }
                 
+                if(currentRepeatLength > maxRepeatLength)
+                {
+                        maxRepeatLength = currentRepeatLength;
+                        maxRepeatNumber = currentRepeatNumber;
+                }                
             }
             
             Console.OutputEncoding = Encoding.Unicode;
