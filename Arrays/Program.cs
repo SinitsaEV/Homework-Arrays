@@ -10,8 +10,6 @@ namespace Arrays
             int maxRandomValue = 5;
             int minRandomValue = 0;
 
-            bool isSwapped = false;
-
             Random random = new Random();
 
             for (int i = 0; i < numbers.Length; i++)
@@ -23,9 +21,7 @@ namespace Arrays
             Console.WriteLine();
 
             for (int i = 0; i < numbers.Length; i++)
-            {
-                isSwapped = false;
-
+            {               
                 for (int j = 0; j < numbers.Length - 1; j++)
                 {
                     if (numbers[j] > numbers[j + 1])
@@ -33,13 +29,7 @@ namespace Arrays
                         int buffer = numbers[j + 1];
                         numbers[j + 1] = numbers[j];
                         numbers[j] = buffer;
-                        isSwapped = true;
                     }
-                }
-
-                if (!isSwapped)
-                {
-                    break;
                 }
             }
 
