@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Text;
 
 namespace Arrays
 {
     internal class Program
     {
         static void Main(string[] args)
-        {            
+        {
             int[] numbers = new int[30];
             int maxRandomValue = 5;
             int minRandomValue = 0;
 
-            int maxRepeatLength = 0;
-            int maxRepeatNumber = 0;
-            int minRepeatLength = 1;
-            int currentRepeatLength = minRepeatLength;
-            int currentRepeatNumber;
+            bool isSwapped = false;
 
             Random random = new Random();
 
@@ -25,31 +20,33 @@ namespace Arrays
                 Console.Write(numbers[i] + " ");
             }
 
-            currentRepeatNumber = numbers[0];            
-
-            for (int i = 1;i < numbers.Length; i++)
-            {
-                if(currentRepeatNumber == numbers[i])
-                {
-                    currentRepeatLength++;
-                }
-                else
-                {
-                    if(currentRepeatLength > maxRepeatLength)
-                    {
-                        maxRepeatLength = currentRepeatLength;
-                        maxRepeatNumber = currentRepeatNumber;
-                    }
-
-                    currentRepeatNumber = numbers[i];
-                    currentRepeatLength = minRepeatLength;
-                }
-                
-            }
-            
-            Console.OutputEncoding = Encoding.Unicode;
             Console.WriteLine();
-            Console.WriteLine($"Число {maxRepeatNumber} встречается {maxRepeatLength} раз подряд.");
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                isSwapped = false;
+
+                for (int j = 0; j < numbers.Length - 1; j++)
+                {
+                    if (numbers[j] < numbers[j + 1])
+                    {
+                        int buffer = numbers[j + 1];
+                        numbers[j + 1] = numbers[j];
+                        numbers[j] = buffer;
+                        isSwapped = true;
+                    }
+                }
+
+                if (!isSwapped)
+                {
+                    break;
+                }
+            }
+
+            for (int i = 0; i < numbers.Length; i++)
+                Console.Write(numbers[i] + " ");
+
+            Console.WriteLine();
         }
     }
 }
