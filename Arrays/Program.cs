@@ -28,7 +28,7 @@ namespace Arrays
 
                 for (int j = 0; j < numbers.Length - 1; j++)
                 {
-                    if (numbers[j] < numbers[j + 1])
+                    if (numbers[j] > numbers[j + 1])
                     {
                         int buffer = numbers[j + 1];
                         numbers[j + 1] = numbers[j];
