@@ -14,12 +14,11 @@ namespace Arrays
             int differenceBracketsCount = 0;
             int maxDepth = 0;
             int currentDepth = 0;
+            char openBracketSymbol = '(';
             bool isCorrectExpression = true;
 
             foreach (char bracket in brackets)
-            {
-                char openBracketSymbol = '(';
-
+            {                
                 if (bracket == openBracketSymbol)
                     differenceBracketsCount++;
                 else
