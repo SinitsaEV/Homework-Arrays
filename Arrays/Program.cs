@@ -15,7 +15,7 @@ namespace Arrays
 
             foreach (int number in numbers)
             {
-                Console.Write(i);
+                Console.Write(number);
             }
 
             Console.WriteLine();
