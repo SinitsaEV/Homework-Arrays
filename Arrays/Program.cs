@@ -7,35 +7,39 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; 
-
             Console.OutputEncoding = Encoding.Unicode;
-            Console.Write("Введите число для сдвига: ");
-            int offset = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите скобочное выражение: ");
 
-            foreach (int i in numbers)
+            string brackets = Console.ReadLine();
+            int openBracketsCount = 0;
+            int maxDepth = 0;
+            int currentDepth = 0;
+            bool isCorrectExpression = true;
+
+            foreach (char bracket in brackets)
             {
-                Console.Write(i);
-            }
+                char openBracketSymbol = '(';
 
-            Console.WriteLine();
+                if (bracket == openBracketSymbol)
+                    openBracketsCount++;
+                else
+                    openBracketsCount--;
 
-            for (int i = 0; i < offset; i++)
-            {
-                int firstNumber = numbers[0];
-
-                for (int j = 0; j < numbers.Length - 1; j++)
+                if (openBracketsCount < 0)
                 {
-                    numbers[j] = numbers[j + 1];
+                    isCorrectExpression = false;
+                    Console.WriteLine("неверное скобочное выражение");
+                    break;
                 }
 
-                numbers[numbers.Length - 1] = firstNumber;
+                currentDepth = openBracketsCount;
+
+                if (currentDepth > maxDepth)
+                    maxDepth = currentDepth;
             }
 
-            foreach(int i in numbers)
-            {
-                Console.Write(i);
-            }
+            if (isCorrectExpression)
+                Console.WriteLine($"максимальная глубина: {maxDepth}");
         }
     }
 }
