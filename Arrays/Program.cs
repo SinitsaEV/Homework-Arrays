@@ -13,7 +13,7 @@ namespace Arrays
             Console.Write("Введите число для сдвига: ");
             int offset = Convert.ToInt32(Console.ReadLine());
 
-            foreach (int i in numbers)
+            foreach (int number in numbers)
             {
                 Console.Write(i);
             }
