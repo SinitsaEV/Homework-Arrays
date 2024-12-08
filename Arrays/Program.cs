@@ -11,7 +11,7 @@ namespace Arrays
             Console.Write("Введите скобочное выражение: ");
 
             string brackets = Console.ReadLine();
-            int openBracketsCount = 0;
+            int differenceBracketsCount = 0;
             int maxDepth = 0;
             int currentDepth = 0;
             bool isCorrectExpression = true;
@@ -21,18 +21,18 @@ namespace Arrays
                 char openBracketSymbol = '(';
 
                 if (bracket == openBracketSymbol)
-                    openBracketsCount++;
+                    differenceBracketsCount++;
                 else
-                    openBracketsCount--;
+                    differenceBracketsCount--;
 
-                if (openBracketsCount < 0)
+                if (differenceBracketsCount < 0)
                 {
                     isCorrectExpression = false;
                     Console.WriteLine("неверное скобочное выражение");
                     break;
                 }
 
-                currentDepth = openBracketsCount;
+                currentDepth = differenceBracketsCount;
 
                 if (currentDepth > maxDepth)
                     maxDepth = currentDepth;
